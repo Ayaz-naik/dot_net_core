@@ -30,7 +30,7 @@ namespace coreapp_demo.Controllers
 
         // GET: api/Employees/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetEmployee([FromRoute] int id)
+        public async Task<IActionResult> GetEmployee([FromRoute] long id)
         {
             if (!ModelState.IsValid)
             {
@@ -49,7 +49,7 @@ namespace coreapp_demo.Controllers
 
         // PUT: api/Employees/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutEmployee([FromRoute] int id, [FromBody] Employee employee)
+        public async Task<IActionResult> PutEmployee([FromRoute] long id, [FromBody] Employee employee)
         {
             if (!ModelState.IsValid)
             {
@@ -99,7 +99,7 @@ namespace coreapp_demo.Controllers
 
         // DELETE: api/Employees/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteEmployee([FromRoute] int id)
+        public async Task<IActionResult> DeleteEmployee([FromRoute] long id)
         {
             if (!ModelState.IsValid)
             {
@@ -118,7 +118,7 @@ namespace coreapp_demo.Controllers
             return Ok(employee);
         }
 
-        private bool EmployeeExists(int id)
+        private bool EmployeeExists(long id)
         {
             return _context.Employee.Any(e => e.employeeId == id);
         }
